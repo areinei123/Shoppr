@@ -1,4 +1,14 @@
 <%= form_for @group, url: groups_path(@group) do |f| %>
+  <% if @group.errors.any? %>
+  <div id="error_explanation">
+   <ul>
+     <% @group.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+   </ul>
+  </div>
+  <% end %>
+
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.submit "Add", class: "button postfix" %>

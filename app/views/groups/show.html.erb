@@ -1,0 +1,10 @@
+<h1><%=@group.name%></h1>
+
+<%= link_to "Delete", group_path(@group.id), method: :delete %>
+<%= link_to "Join Group!", group_memberships_path(@group), method: :post %>
+<h1>These are the members of this group</h1>
+<% @group.users.each do |user| %>
+  <%= "#{user.first_name} #{user.last_name}" %>
+<% end %>
+
+<h1>Surpries Supplies!</h1>
