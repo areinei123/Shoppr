@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   resources :groups, only: [:index, :show, :destroy] do
     resources :memberships, only: [:create]
+    resources :grocery_lists
   end
 end

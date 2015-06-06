@@ -13,7 +13,6 @@ feature 'user creates grocery list' do
     click_button 'Log in'
 
     click_link "#{group.name}"
-    save_and_open_page
 
     expect(page).to have_content('This group current has no lists')
 
