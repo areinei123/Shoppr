@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @membership = Membership.find_by(user: current_user, group: @group)
   end
 
   def create
