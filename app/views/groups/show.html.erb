@@ -1,6 +1,8 @@
 <h1><%=@group.name%></h1>
-<% @group.memberships.each do |member| %>
-  <%= "#{member.user.first_name} #{member.user.last_name}" %>
+
+<%= link_to "Join Group!", group_memberships_path(@group), method: :post %>
+<% @group.users.each do |user| %>
+  <%= "#{user.first_name} #{user.last_name}" %>
 <% end %>
 
 <h1>Surpries Supplies!</h1>
