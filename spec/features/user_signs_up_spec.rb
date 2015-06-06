@@ -21,8 +21,6 @@ feature 'user registers', %Q{
     fill_in 'First name', with: 'Joe'
     fill_in 'Last name', with: 'Shmoe'
 
-    save_and_open_page
-
     click_button 'Sign up'
 
     expect(page).to have_content('Welcome! You have signed up successfully.')
