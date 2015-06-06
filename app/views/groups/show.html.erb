@@ -1,5 +1,6 @@
 <h1><%=@group.name%></h1>
 
+<%= link_to "Update", [:edit, @group] %>
 <%= link_to "Delete Group", group_path(@group), method: :delete %>
 <% if user_signed_in? && current_user.groups.include?(@group) %>
   <%= link_to "Leave Group!", group_membership_path(@group, @membership), method: :delete %>
