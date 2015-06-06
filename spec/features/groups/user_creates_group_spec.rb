@@ -1,0 +1,37 @@
+require 'rails_helper'
+
+feature 'user creates group', %Q{
+  As a signed up user
+  I want to create a group
+  So that I can add supplies
+} do
+
+  scenario 'user successfully creates a group' do
+    user = FactoryGirl.create(:user)
+
+    visit root_path
+
+    sign_in_as(user)
+
+    fill_in "Name", with: "BBQ"
+
+    click_on "Add"
+
+    expect(page).to have_content("Group added.")
+    expect(page).to have_content("BBQ")
+  end
+
+  scenario 'user unsuccessfully creates a group' do
+    user = FactoryGirl.create(:user)
+
+    visit root_path
+
+    sign_in_as(user)
+
+    fill_in "Name", with: ""
+
+    click_on "Add"
+
+    expect(page).to have_content("Name can't be blank")
+  end
+end
