@@ -6,6 +6,8 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @grocery_lists = GroceryList.where :group_id => @group.id
+    @grocery_list = GroceryList.new
   end
 
   def create
