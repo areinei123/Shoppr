@@ -10,6 +10,20 @@ class GroupsController < ApplicationController
     @grocery_list = GroceryList.new
   end
 
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to @group
+    else
+      flash[:notice] = @group.errors.full_messages.join("! ")
+      render :edit
+    end
+  end
+
   def create
     @group  = Group.new(group_params)
 
