@@ -10,7 +10,7 @@ feature 'membership create' do
     click_link group.name
     click_link "Join Group!"
 
-    expect(GroupMembership.count).to be(1)
+    expect(Membership.count).to be(1)
   end
 
   scenario 'cannot join group if not signed in' do
@@ -18,6 +18,6 @@ feature 'membership create' do
     click_link group.name
     click_link "Join Group!"
 
-    expect(page).to have_content("You must sign-in first")
+    expect(page).to have_content("You must sign in to join groups")
   end
 end
