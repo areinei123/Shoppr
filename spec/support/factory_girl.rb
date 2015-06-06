@@ -7,4 +7,7 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :group do
+    sequence(:name) { |n| "group #{n}" }
+  end
 end
