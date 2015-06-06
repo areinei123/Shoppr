@@ -1,8 +1,13 @@
 <h1><%=@group.name%></h1>
 
-<%= link_to "Delete", group_path(@group.id), method: :delete %>
+
 <%= link_to "Edit", [:edit, @group] %>
-<%= link_to "Join Group!", group_memberships_path(@group), method: :post %>
+<%= link_to "Delete Group", group_path(@group), method: :delete %>
+<% if user_signed_in? && current_user.groups.include?(@group) %>
+  <%= link_to "Leave Group!", group_membership_path(@group, @membership), method: :delete %>
+<% else %>
+  <%= link_to "Join Group!", group_memberships_path(@group), method: :post %>
+<% end %>
 <h1>These are the members of this group</h1>
 <% @group.users.each do |user| %>
   <%= "#{user.first_name} #{user.last_name}" %>

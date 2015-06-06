@@ -4,6 +4,7 @@ feature 'user visits show page' do
   let!(:user) {FactoryGirl.create(:user)}
   let!(:group) {FactoryGirl.create(:group)}
   let!(:grocery_list) {FactoryGirl.create(:grocery_list, group_id: group.id)}
+
   context 'As an authenticated user' do
     scenario 'I want to be able to view the show page' do
       visit root_path
