@@ -1,11 +1,28 @@
 <h1><%=@group.name%></h1>
 
-<%= link_to "Delete", group_path(@group.id), method: :delete %>
 <%= link_to "Update", [:edit, @group] %>
-<%= link_to "Join Group!", group_memberships_path(@group), method: :post %>
+<%= link_to "Delete Group", group_path(@group), method: :delete %>
+<% if user_signed_in? && current_user.groups.include?(@group) %>
+  <%= link_to "Leave Group!", group_membership_path(@group, @membership), method: :delete %>
+<% else %>
+  <%= link_to "Join Group!", group_memberships_path(@group), method: :post %>
+<% end %>
 <h1>These are the members of this group</h1>
 <% @group.users.each do |user| %>
   <%= "#{user.first_name} #{user.last_name}" %>
 <% end %>
 
 <h1>Surpries Supplies!</h1>
+
+<%= form_for [@group, @grocery_list] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Create List" %>
+<%-end-%>
+
+<%= "This group current has no lists" if @grocery_lists.empty? %>
+
+<% @grocery_lists.each do |grocery_list| %>
+  <%= grocery_list.name %>
+<%-end-%>

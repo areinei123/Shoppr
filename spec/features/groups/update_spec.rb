@@ -5,8 +5,8 @@ feature 'Update group instance' do
   scenario 'update group' do
     visit root_path
     click_on "#{group.name}"
-    expect(page).to have_content("Update")
-    click_on "Update"
+    expect(page).to have_content("Edit")
+    click_on "Edit"
     expect(page).to have_content("Name")
     fill_in 'Name', with: "New Group Name"
     click_on 'Submit'
