@@ -7,6 +7,8 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @membership = Membership.find_by(user: current_user, group: @group)
+    @grocery_lists = GroceryList.where :group_id => @group.id
+    @grocery_list = GroceryList.new
   end
 
   def create

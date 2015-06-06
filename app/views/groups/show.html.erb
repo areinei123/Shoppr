@@ -12,3 +12,16 @@
 <% end %>
 
 <h1>Surpries Supplies!</h1>
+
+<%= form_for [@group, @grocery_list] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Create List" %>
+<%-end-%>
+
+<%= "This group current has no lists" if @grocery_lists.empty? %>
+
+<% @grocery_lists.each do |grocery_list| %>
+  <%= grocery_list.name %>
+<%-end-%>
