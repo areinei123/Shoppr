@@ -12,4 +12,8 @@ FactoryGirl.define do
   factory :group do
     sequence(:name) { |n| "group #{n}" }
   end
+
+  factory :grocery_list do
+    sequence(:name) { |n| "list item #{n}"}
+  end
 end
