@@ -4,9 +4,9 @@ feature 'Destroy group instance' do
   let!(:group) {FactoryGirl.create(:group)}
   scenario 'destroy group' do
     visit root_path
-    click_on "#{group.name}"
-    expect(page).to have_content("Delete")
-    click_on "Delete"
+    click_on group.name
+    expect(page).to have_content("Delete Group")
+    click_on "Delete Group"
     current_path.should == root_path
   end
 end

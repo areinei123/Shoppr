@@ -14,7 +14,7 @@ feature 'user creates grocery list' do
 
     click_link "#{group.name}"
 
-    expect(page).to have_content('This group current has no lists')
+    expect(page).to have_content('This group currently has no lists')
 
     fill_in 'Name', with: 'Fourth of July BBQ'
     click_button 'Create List'

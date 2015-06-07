@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'groups#index'
   devise_for :users, :controllers => {registrations: 'registrations' }
 
-  resources :groups, only: [:index, :show, :create, :destroy] do
-    resources :memberships, only: [:create]
-    resources :grocery_lists
+  resources :groups, only: [:index, :show, :create, :destroy, :edit, :update] do
+    resources :memberships, only: [:create, :destroy]
+    resources :grocery_lists, only: [:index, :show, :new, :create, :destroy]
   end
 end

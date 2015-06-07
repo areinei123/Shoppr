@@ -6,8 +6,23 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @membership = Membership.find_by(user: current_user, group: @group)
     @grocery_lists = GroceryList.where :group_id => @group.id
     @grocery_list = GroceryList.new
+  end
+
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to @group
+    else
+      flash[:notice] = @group.errors.full_messages.join("! ")
+      render :edit
+    end
   end
 
   def create
@@ -22,13 +37,30 @@ class GroupsController < ApplicationController
     end
   end
 
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to @group
+    else
+      flash[:notice] = @group.errors.full_messages.join("! ")
+      render :edit
+    end
+  end
+
   def destroy
     @group = Group.find(params[:id])
     @group.destroy
     redirect_to root_path
   end
 
+  private
+
   def group_params
     params.require(:group).permit(:name)
   end
 end
+
