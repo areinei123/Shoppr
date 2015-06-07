@@ -1,0 +1,8 @@
+<ul>
+  <% @receipts.each do |receipt| %>
+    Receipt by <%= receipt.uploaded_by %>
+    <%= image_tag(receipt.photo) %>
+  <% end %>
+</ul>
+
+<%= render 'form' %>

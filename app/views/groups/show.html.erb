@@ -1,22 +1,21 @@
-<h1><%=@group.name%></h1>
+<div class="row">
+<h2><%=@group.name%></h2>
 
-
-<%= link_to "Edit", [:edit, @group] %>
-<%= link_to "Delete Group", group_path(@group), method: :delete %>
+<%= link_to "Edit", [:edit, @group], class: "button tiny radius" %>
+<%= link_to "Delete Group", group_path(@group), method: :delete, class: "button tiny radius" %>
 <% if user_signed_in? && current_user.groups.include?(@group) %>
-  <%= link_to "Leave Group!", group_membership_path(@group, @membership), method: :delete %>
+  <%= link_to "Leave Group!", group_membership_path(@group, @membership), method: :delete, class: "button tiny radius" %>
 <% else %>
-  <%= link_to "Join Group!", group_memberships_path(@group), method: :post %>
+  <%= link_to "Join Group!", group_memberships_path(@group), method: :post, class: "button tiny radius" %>
 <%-end-%>
-<h1>These are the members of this group</h1>
-<div class="div">
+<h4>These are the members of this group</h4>
+<%= "This group currently has no members" if @group.users.empty? %>
 <% @group.users.each do |user| %>
   <%= "#{user.first_name} #{user.last_name}" %>
 <%-end-%>
-
-<h1>Surpries Supplies!</h1>
-
 <%= form_for [@group, @grocery_list] do |f| %>
+  Add Your Group List Here
+
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -26,22 +25,38 @@
 <%= "This group currently has no lists" if @grocery_lists.empty? %>
 <ul>
 <% @grocery_lists.each do |grocery_list| %>
-  <li><%= grocery_list.name %> | <%= link_to "Delete List", group_grocery_list_path(@group, grocery_list), method: :delete %> </li>
-    <p>Add to the supplies for this group:</p>
-    <%= form_for [grocery_list, @supply] do |f| %>
-      <%= f.label :item %>
-      <%= f.text_field :item %>
-      <%= f.submit "Add Item" %>
-    <%-end-%>
-  <ul><% @supplies.each do |supply| %>
-    <li><%= supply.item %></li>
-  <%-end-%></ul>
-  <ul><% @grocery_items.each do |grocery_item| %>
-    <li><%= grocery_item.name %></li>
-    <li><%= grocery_item.quantity %> </li>
-    <li><%= grocery_item.expiration_date %></li>
-    <li><%= link_to "Edit Item", edit_grocery_list_grocery_item_path(grocery_list, grocery_item) %></li>
-  <%-end-%></ul>
+  <li><h3><%= grocery_list.name %> | <%= link_to "Delete List", group_grocery_list_path(@group, grocery_list), method: :delete %> </h3></li>
+  <div class="row">
+    <div class="small-6 column">
+      <h4>Surpries Supplies!</h4>
+      <p>Add to the supplies for this group:</p>
+      <%= form_for [grocery_list, @supply] do |f| %>
+        <%= f.label :item %>
+        <%= f.text_field :item %>
+        <%= f.submit "Add Item" %>
+      <%-end-%>
+      <ul><% @supplies.each do |supply| %>
+        <li><%= supply.item %></li>
+      <%-end-%></ul>
+    </div>
+    <div class="small-6 column">
+    <h4>Receipt Items</h4>
+    <p>This side is mostly a placeholder for the list of items we pull from receipts using HP's OCR reader</p>
+    <p>But it would be really cool if this worked!</p>
+    <p>Trust me!</p>
+    <p>By pull data from receipts, we could streamline cost sharing</p>
+    <p>We could also have a simple checklist for groceries when someone at home finishes the milk or the the Twinkies go bad</p>
+    <p>"But Twinkies don't go bad!" you say?</p>
+    <p>They do</p>
+      <ul><% @grocery_items.each do |grocery_item| %>
+        <li><%= grocery_item.name %></li>
+        <li><%= grocery_item.quantity %> </li>
+        <li><%= grocery_item.expiration_date %></li>
+        <li><%= link_to "Edit Item", edit_grocery_list_grocery_item_path(grocery_list, grocery_item) %></li>
+      <%-end-%></ul>
+      <%= link_to "View Receipts", group_grocery_list_receipts_path(@group, grocery_list) %>
+    </div>
+  </div>
 <%-end-%>
 </ul>
 </div>

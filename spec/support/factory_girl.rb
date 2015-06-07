@@ -37,7 +37,7 @@ FactoryGirl.define do
   end
 
   factory :receipt do
-    photo "#{Rails.root}/spec/support/images/receipt.jpg"
+    photo File.open(File.join(Rails.root,"/spec/support/images/receipt.jpg"))
     membership
     grocery_list
   end
