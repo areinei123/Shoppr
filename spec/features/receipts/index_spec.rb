@@ -13,5 +13,6 @@ feature 'Create a new recipe' do
     visit root_path
     sign_in_as user
     click_link group.name
+    
   end
 end
