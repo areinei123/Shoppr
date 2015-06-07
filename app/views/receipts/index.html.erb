@@ -1,7 +1,6 @@
 <ul>
   <% @receipts.each do |receipt| %>
     Receipt by <%= receipt.uploaded_by %>
-    <% binding.pry %>
     <%= image_tag(receipt.photo) %>
   <% end %>
 </ul>

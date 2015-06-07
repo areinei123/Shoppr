@@ -16,7 +16,6 @@ feature 'see all receipts' do
     sign_in_as user
     click_link group.name
     click_link "View Receipts"
-    save_and_open_page
 
     expect(page).to have_content("Receipt by #{user.full_name}")
   end

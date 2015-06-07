@@ -1,11 +1,15 @@
-<div class="row">
-<h1>Groups:</h1>
+<div class="row homepage">
+  <h1>Groups</h1>
 
-<% @groups.each do |group| %>
-  <%= link_to "#{group.name}", group_path(group.id) %>
-<% end %>
+  <fieldset class="groupNameList">
+    <% @groups.each do |group| %>
+      <div><%= link_to "#{group.name}", group_path(group.id) %></div>
+    <% end %>
+  </fieldset>
 
-<% if current_user %>
-  <%= render "groups/new" %>
-<% end %>
+    <div class="newGroup">
+      <% if current_user %>
+        <%= render "groups/new" %>
+      <% end %>
+    </div>
 </div>
