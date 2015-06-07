@@ -30,5 +30,6 @@
     <%= grocery_item.name %>
     <%= grocery_item.quantity %>
     <%= grocery_item.expiration_date %>
+    <%= link_to "Edit Item", edit_grocery_list_grocery_item_path(grocery_list, grocery_item) %>
   <% end %>
 <%-end-%>
