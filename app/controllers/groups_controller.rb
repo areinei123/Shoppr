@@ -5,10 +5,11 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
-    @membership = Membership.find_by(user: current_user, group: @group)
-    @grocery_lists = GroceryList.where :group_id => @group.id
-    @grocery_list = GroceryList.new
+    @group         = Group.find(params[:id])
+    @membership    = Membership.find_by(user: current_user, group: @group)
+    @grocery_lists = GroceryList.where(group_id: @group.id)
+    @grocery_list  = GroceryList.new
+    @grocery_items = GroceryItem.where(grocery_list_id: @grocery_lists)
   end
 
   def edit

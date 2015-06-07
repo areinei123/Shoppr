@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'grocery_items_controller/index'
+
   root 'groups#index'
   devise_for :users, :controllers => {registrations: 'registrations' }
 
