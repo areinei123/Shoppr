@@ -21,4 +21,8 @@ FactoryGirl.define do
     sequence(:name) { |n| "New Item #{n}"}
     sequence(:quantity) { |n| "#{n}"}
   end
+
+  factory :supply do
+    sequence(:item) { |n| "Supply Item #{n}"}
+  end
 end
