@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   end
   resources :grocery_lists, only: [:index, :show, :new, :create, :destroy] do
     resources :supplies, only: [:index, :new, :create]
+    resources :grocery_items, only: [:edit, :update]
   end
-
 end
