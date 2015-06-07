@@ -1,5 +1,7 @@
 <h1><%=@group.name%></h1>
 
+
+<%= link_to "Edit", [:edit, @group] %>
 <%= link_to "Delete Group", group_path(@group), method: :delete %>
 <% if user_signed_in? && current_user.groups.include?(@group) %>
   <%= link_to "Leave Group!", group_membership_path(@group, @membership), method: :delete %>
@@ -20,7 +22,7 @@
   <%= f.submit "Create List" %>
 <%-end-%>
 
-<%= "This group current has no lists" if @grocery_lists.empty? %>
+<%= "This group currently has no lists" if @grocery_lists.empty? %>
 
 <% @grocery_lists.each do |grocery_list| %>
   <%= grocery_list.name %>

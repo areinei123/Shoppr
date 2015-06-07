@@ -3,6 +3,7 @@ class CreateGroceryLists < ActiveRecord::Migration
     create_table :grocery_lists do |t|
       t.string :name, null: false
       t.integer :group_id, null: false
+      t.timestamps
     end
   end
 end
