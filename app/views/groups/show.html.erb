@@ -26,4 +26,9 @@
 
 <% @grocery_lists.each do |grocery_list| %>
   <%= grocery_list.name %>
+  <% @grocery_items.each do |grocery_item| %>
+    <%= grocery_item.name %>
+    <%= grocery_item.quantity %>
+    <%= grocery_item.expiration_date %>
+  <% end %>
 <%-end-%>
