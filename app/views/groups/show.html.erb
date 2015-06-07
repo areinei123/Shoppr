@@ -10,38 +10,43 @@
 <%-end-%>
 <h1>These are the members of this group</h1>
 <div class="div">
-<% @group.users.each do |user| %>
-  <%= "#{user.first_name} #{user.last_name}" %>
-<%-end-%>
+  <% @group.users.each do |user| %>
+    <%= "#{user.first_name} #{user.last_name}" %>
+  <%-end-%>
 
-<h1>Surpries Supplies!</h1>
+  <h1>Surpries Supplies!</h1>
 
-<%= form_for [@group, @grocery_list] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= form_for [@group, @grocery_list] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-  <%= f.submit "Create List" %>
-<%-end-%>
+    <%= f.submit "Create List" %>
+  <%-end-%>
 
-<%= "This group currently has no lists" if @grocery_lists.empty? %>
-<ul>
-<% @grocery_lists.each do |grocery_list| %>
-  <li><%= grocery_list.name %> | <%= link_to "Delete List", group_grocery_list_path(@group, grocery_list), method: :delete %> </li>
-    <p>Add to the supplies for this group:</p>
-    <%= form_for [grocery_list, @supply] do |f| %>
-      <%= f.label :item %>
-      <%= f.text_field :item %>
-      <%= f.submit "Add Item" %>
+  <%= "This group currently has no lists" if @grocery_lists.empty? %>
+  <ul>
+    <% @grocery_lists.each do |grocery_list| %>
+      <li><%= grocery_list.name %> | <%= link_to "Delete List", group_grocery_list_path(@group, grocery_list), method: :delete %> </li>
+      <p>Add to the supplies for this group:</p>
+      <%= form_for [grocery_list, @supply] do |f| %>
+        <%= f.label :item %>
+        <%= f.text_field :item %>
+        <%= f.submit "Add Item" %>
+      <%-end-%>
+      <ul>
+        <% @supplies.each do |supply| %>
+          <li><%= supply.item %></li>
+        <%-end-%>
+      </ul>
+      <ul>
+        <% @grocery_items.each do |grocery_item| %>
+          <li><%= grocery_item.name %></li>
+          <li><%= grocery_item.quantity %> </li>
+          <li><%= grocery_item.expiration_date %></li>
+          <li><%= link_to "Edit Item", edit_grocery_list_grocery_item_path(grocery_list, grocery_item) %></li>
+        <%-end-%>
+      </ul>
+      <%= link_to "View Receipts", group_grocery_list_receipts_path(@group, grocery_list) %>
     <%-end-%>
-  <ul><% @supplies.each do |supply| %>
-    <li><%= supply.item %></li>
-  <%-end-%></ul>
-  <ul><% @grocery_items.each do |grocery_item| %>
-    <li><%= grocery_item.name %></li>
-    <li><%= grocery_item.quantity %> </li>
-    <li><%= grocery_item.expiration_date %></li>
-    <li><%= link_to "Edit Item", edit_grocery_list_grocery_item_path(grocery_list, grocery_item) %></li>
-  <%-end-%></ul>
-<%-end-%>
-</ul>
+  </ul>
 </div>
