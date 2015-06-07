@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :groups, only: [:index, :show, :create, :destroy, :edit, :update] do
     resources :memberships, only: [:create, :destroy]
     resources :grocery_lists, only: [:index, :show, :new, :create, :destroy] do
-      resources :receipts, only: :index
+      resources :receipts, only: [:index, :create]
     end
   end
   resources :grocery_lists, only: [:index, :show, :new, :create, :destroy] do

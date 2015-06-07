@@ -1,0 +1,5 @@
+<%= form_for [@group, @grocery_list, @receipt] do |f| %>
+  <%= f.file_field :photo, id: "receipt_field" %>
+  <%= f.submit "Upload New Receipt", class: "button postfix" %>
+<% end %>
+
