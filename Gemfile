@@ -13,6 +13,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'foundation-rails'
 gem 'pry-rails'
+gem 'carrierwave'
+gem 'fog'
 
 group :development, :test do
   gem 'byebug'
@@ -25,6 +27,7 @@ group :development, :test do
   gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda-matchers'
+  gem "dotenv-rails"
 end
 
 group :production do

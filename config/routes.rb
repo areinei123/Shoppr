@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :groups, only: [:index, :show, :create, :destroy, :edit, :update] do
     resources :memberships, only: [:create, :destroy]
-    resources :grocery_lists, only: [:index, :show, :new, :create, :destroy]
+    resources :grocery_lists, only: [:index, :show, :new, :create, :destroy] do
+      resources :receipts, only: :index
+    end
   end
   resources :grocery_lists, only: [:index, :show, :new, :create, :destroy] do
     resources :supplies, only: [:index, :new, :create]
