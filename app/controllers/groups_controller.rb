@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
     @grocery_lists = GroceryList.where(group_id: @group.id)
     @grocery_list  = GroceryList.new
     @grocery_items = GroceryItem.where(grocery_list_id: @grocery_lists)
+    @supply        = Supply.new
     @supplies      = Supply.where(grocery_list_id: @grocery_lists)
   end
 

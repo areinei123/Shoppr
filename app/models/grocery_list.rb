@@ -5,4 +5,5 @@ class GroceryList < ActiveRecord::Base
   has_many   :receipts
   has_many   :supplies
   belongs_to :group
+  has_many :supplies
 end
