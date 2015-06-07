@@ -8,4 +8,9 @@ Rails.application.routes.draw do
     resources :memberships, only: [:create, :destroy]
     resources :grocery_lists, only: [:index, :show, :new, :create, :destroy]
   end
+
+  resources :grocery_lists do
+    resources :grocery_items
+    resources :receipts
+  end
 end

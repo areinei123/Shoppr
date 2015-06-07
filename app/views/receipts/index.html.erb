@@ -1,0 +1,9 @@
+<%= form_for [@grocery_list, @receipt] do |f| %>
+  <%= f.label :img_url, 'Receipt URL' %>
+  <%=f.text_field :img_url %>
+
+  <%= f.label :date %>
+  <%= f.date_field :date, :value => DateTime.now.to_date %>
+
+  <%= f.submit 'Add receipt' %>
+<%-end-%>

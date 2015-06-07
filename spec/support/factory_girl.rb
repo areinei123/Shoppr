@@ -21,4 +21,9 @@ FactoryGirl.define do
     sequence(:name) { |n| "New Item #{n}"}
     sequence(:quantity) { |n| "#{n}"}
   end
+
+  factory :membership do
+    group_id nil
+    user_id nil
+  end
 end
