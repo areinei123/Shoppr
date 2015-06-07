@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
     @grocery_lists = GroceryList.where(group_id: @group.id)
     @grocery_list  = GroceryList.new
     @grocery_items = GroceryItem.where(grocery_list_id: @grocery_lists)
+    @supplies      = Supply.where(grocery_list_id: @grocery_lists)
   end
 
   def edit
@@ -28,7 +29,6 @@ class GroupsController < ApplicationController
 
   def create
     @group  = Group.new(group_params)
-
     if @group.save
       flash[:notice] = "Group added."
       redirect_to root_path
