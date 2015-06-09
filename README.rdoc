@@ -1,28 +1,28 @@
-== README
+== Welcome to Shoppr
+
+This glorious app is designed to make it easy to build lists of receipts from purchases to share them with friends and family.
+
+Take a picture of a receipt, let the app work its magic, and voila!
+
+Useful for events when multiple people need to bring multiple things they have purchased from multiple places and bring them together so that multiple other people can know how much those multiple items cost so they can give you multiple dollars.
+
+In order to get this Ruby on Rails app running locally:
+* Clone it to your desktop using your favorite git method
+
+* run rake db:create
+
+* run rake db:migrate
+
+* run bundle
+
+* open it up on a localhost (usually done by 'rails server' or 'rails s')
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
+This app runs on ruby 2.1.5
+This app uses RSpec and Capybara. run 'rake spec' from console to run test suite
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Please note this app is not finished!
+Any functionality described above may or may not be actually functional
