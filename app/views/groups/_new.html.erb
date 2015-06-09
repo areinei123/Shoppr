@@ -8,8 +8,6 @@
    </ul>
   </div>
   <% end %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, placeholder: "Add new group" %>
   <%= f.submit "Add", class: "button postfix" %>
 <% end %>
