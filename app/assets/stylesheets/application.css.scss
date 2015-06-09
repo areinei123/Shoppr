@@ -21,6 +21,7 @@ $font-family-main: Amatic SC;
 
 body {
   font-family: $font-family-main;
+  font-weight: bold;
 }
 .homepage {
   width: 50%;
@@ -59,4 +60,8 @@ body {
 .top-bar-section .right li a {
   font-family: $font-family-main;
   font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-main
 }
