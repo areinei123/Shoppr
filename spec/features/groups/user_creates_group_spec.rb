@@ -13,7 +13,7 @@ feature 'user creates group', %Q{
 
     sign_in_as(user)
 
-    fill_in "Name", with: "BBQ"
+    fill_in "group_name", with: "BBQ"
 
     click_on "Add"
 
@@ -28,7 +28,7 @@ feature 'user creates group', %Q{
 
     sign_in_as(user)
 
-    fill_in "Name", with: ""
+    fill_in "group_name", with: ""
 
     click_on "Add"
 

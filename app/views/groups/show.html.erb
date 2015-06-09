@@ -1,7 +1,5 @@
 <div class="row">
   <h2><%=@group.name%></h2>
-
-
   <%= link_to "Edit", [:edit, @group], class: "button tiny radius" %>
   <%= link_to "Delete Group", group_path(@group), method: :delete, class: "button tiny radius" %>
   <% if user_signed_in? && current_user.groups.include?(@group) %>

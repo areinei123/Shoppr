@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore environment variables containing sensitive information
+/.env
+
+# Ignore uploaded files in test/development
+/public/uploads
