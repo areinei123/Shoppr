@@ -1,7 +1,9 @@
-<h1>Edit this group</h1>
-<%= form_for @group do |t| %>
-  <%= t.label :name %>
-  <%= t.text_field :name %>
+<div class='row'>
+  <h1>Edit this group</h1>
+  <%= form_for @group do |t| %>
+    <%= t.label :name %>
+    <%= t.text_field :name %>
 
-  <%= t.submit "Submit", class: "button radius" %>
-<% end %>
+    <%= t.submit "Submit", class: "button radius" %>
+  <% end %>
+</div>

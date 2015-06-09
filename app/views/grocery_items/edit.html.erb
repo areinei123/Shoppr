@@ -1,10 +1,12 @@
-<h1>Edit this item</h1>
-<%= form_for [@grocery_list, @grocery_item],
-  url: grocery_list_grocery_item_path(@grocery_list, @grocery_item) do |t| %>
-  <%= t.label :name %>
-  <%= t.text_field :name %>
-  <%= t.label :quantity %>
-  <%= t.text_field :quantity %>
+<div class='row'>
+  <h1>Edit this item</h1>
+  <%= form_for [@grocery_list, @grocery_item],
+    url: grocery_list_grocery_item_path(@grocery_list, @grocery_item) do |t| %>
+    <%= t.label :name %>
+    <%= t.text_field :name %>
+    <%= t.label :quantity %>
+    <%= t.text_field :quantity %>
 
-  <%= t.submit "Update", class: "button radius" %>
-<% end %>
+    <%= t.submit "Update", class: "button radius" %>
+  <% end %>
+</div>
