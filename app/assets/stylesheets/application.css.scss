@@ -62,6 +62,18 @@ body {
   font-size: 1em;
 }
 
+.cookie-monster {
+  position: absolute !important;
+  top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important;
+  border: 8px solid blue !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.cookiemonster {
+  width: 100% !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-main
 }
