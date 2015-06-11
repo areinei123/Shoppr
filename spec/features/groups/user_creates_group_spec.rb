@@ -19,6 +19,7 @@ feature 'user creates group', %Q{
 
     expect(page).to have_content("Group added.")
     expect(page).to have_content("BBQ")
+    expect(Membership.count).to eq(1)
   end
 
   scenario 'user unsuccessfully creates a group' do
