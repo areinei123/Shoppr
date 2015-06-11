@@ -1,5 +1,6 @@
 <div class="row">
   <h2><%=@group.name%></h2>
+
   <%= link_to "Edit", [:edit, @group], class: "button tiny radius" %>
   <%= link_to "Delete Group", group_path(@group), method: :delete, class: "button tiny radius" %>
   <% if user_signed_in? && current_user.groups.include?(@group) %>
@@ -37,7 +38,7 @@
         <ul><% @supplies.each do |supply| %>
           <li><%= supply.item %></li>
         <%-end-%></ul>
-      </div> 
+      </div>
       <div class="small-6 column">
       <h4>Receipt Items</h4>
       <p>This side is mostly a placeholder for the list of items we pull from receipts using HP's OCR reader</p>
@@ -53,7 +54,7 @@
           <li><%= grocery_item.expiration_date %></li>
           <li><%= link_to "Edit Item", edit_grocery_list_grocery_item_path(grocery_list, grocery_item) %></li>
         <%-end-%></ul>
-      </div>  
+      </div>
     </div>
   <%-end-%>
   </ul>

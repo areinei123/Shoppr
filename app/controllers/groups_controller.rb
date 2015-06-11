@@ -31,6 +31,7 @@ class GroupsController < ApplicationController
   def create
     @group  = Group.new(group_params)
     if @group.save
+      Membership.create(group: @group, user: current_user)
       flash[:notice] = "Group added."
       redirect_to root_path
     else
