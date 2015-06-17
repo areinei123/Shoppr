@@ -18,6 +18,6 @@ feature 'membership create' do
     click_link group.name
     click_link "Join Group!"
 
-    expect(page).to have_content("You must sign in to join groups")
+    expect(page).to have_content("You need to sign in or sign up before continuing.")
   end
 end
