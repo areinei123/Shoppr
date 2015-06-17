@@ -10,4 +10,12 @@ class User < ActiveRecord::Base
   def full_name
     first_name + " " + last_name
   end
+
+  def in_group?(group)
+    groups.include?(group)
+  end
+
+  def authenticated?
+    true
+  end
 end
