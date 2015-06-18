@@ -14,4 +14,9 @@ Rails.application.routes.draw do
     resources :supplies, only: [:index, :new, :create]
     resources :grocery_items, only: [:edit, :update]
   end
+
+  resources :grocery_lists do
+    resources :grocery_items
+    resources :receipts
+  end
 end

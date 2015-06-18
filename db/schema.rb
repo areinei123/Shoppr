@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 20150607170900) do
   end
 
   create_table "grocery_lists", force: :cascade do |t|
-    t.string  "name",     null: false
-    t.integer "group_id", null: false
+    t.string   "name",       null: false
+    t.integer  "group_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "groups", force: :cascade do |t|
