@@ -41,4 +41,9 @@ FactoryGirl.define do
     membership
     grocery_list
   end
+  
+  # factory :membership do
+  #   group_id nil
+  #   user_id nil
+  # end
 end
